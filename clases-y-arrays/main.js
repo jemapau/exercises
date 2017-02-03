@@ -1,25 +1,39 @@
+
+//Arrays con valores asociativos
+var imagenes = [];
+imagenes["pig"] = "vaca";
+imagenes["chicken"] = "pollo";
+imagenes["cow"] = "cerdo";
+
 //Class definition of an object
 
-class Pakiman {
+class Animal
+{
   constructor(n, v, a)
-  //it works the same as a function
   {
-    //ex: alert("Hola")
+    this.imagen = new Image();
     this.name = n;
     this.life = v;
-    this.atack = a;
-    this.tipo = "Tierra";
+    this.attack = a;
+
+    this.imagen.src = imagenes[this.name];
   }
   talk()
   {
     alert(this.name);
   }
+  show()
+  {
+    document.write("<p>");
+    document.body.appendChild(this.imagen);
+    document.write("<strong>" + this.name + "</strong>");
+    document.write("Vida:" + this.life + "<br/>");
+    document.write("Ataque:" + this.attack);
+    document.write("</p>");
+  }
 }
 
-var pig = new Pakiman("Piggles", 100 , 30);
-//Objeto de una instancia de la clase Pakiman
-var chicken = new Pakiman("Little chicken dos", 80, 50);
-var cow = new Pakiman("Cow", 120, 40);
-console.log(pig, chicken, cow);
-
-chicken.talk()
+var pig = new Animal("Piggles", 100 , 30);
+//Objeto de una instancia de la clase Animal
+var chicken = new Animal("Little chicken", 80, 50);
+var cow = new Animal("Cow", 120, 40);
